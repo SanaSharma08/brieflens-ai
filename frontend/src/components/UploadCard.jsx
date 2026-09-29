@@ -47,9 +47,7 @@ function UploadCard({ onAnalysisComplete }) {
 
       formData.append("file", selectedFile);
 
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/analyze",
-        {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/analyze`, {
           method: "POST",
           body: formData,
         }
