@@ -1,13 +1,12 @@
-from langchain_huggingface import HuggingFaceEmbeddings
+from dotenv import load_dotenv
+from langchain_openai import OpenAIEmbeddings
+
+load_dotenv("../.env")
 
 
 def get_embedding_model():
-    """
-    Create and return the embedding model.
-    """
-
-    embeddings = HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2"
+    embeddings = OpenAIEmbeddings(
+        model="text-embedding-3-small"
     )
 
     return embeddings
